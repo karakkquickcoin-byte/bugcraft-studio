@@ -459,3 +459,43 @@ export const legion = {
     }
   },
 };
+export const shadowlands = {
+  EnableSpectate: new Buffer([0x00, 0x00, 0x48, 0x00]),
+  DisableSpectate: new Buffer([0x00, 0x00, 0x00, 0x00]),
+  Collision: 0x90,
+  Speed: 0x84,
+  CameraRot: 0x124,
+
+  camera: {
+    base: {
+      version: {
+        ['9.2.7']: {
+          SpectatePointer: [/* TODO: Find new pointer chain */],
+          CameraPointer: [/* TODO: Find new pointer chain */],
+          CameraValuesPointer: 0x0,  // TODO
+        }
+      }
+    }
+  },
+
+  cameraViewMatrix: {
+    version: {
+      ['9.2.7']: {
+        pattern: new Buffer([/* TODO: AOB pattern for camera matrix */]),
+        fix: new Buffer([/* TODO: Fix bytes */])
+      }
+    }
+  },
+
+  environment: {
+    version: {
+      ['9.2.7']: {
+        timeOfDay: 0x0,           // TODO: Find correct offset
+        timeOfDaySpeed: 0x0,      // TODO
+        renderFlags: 0x0,         // TODO
+        renderFlagsDefault: 0x0   // TODO
+      }
+    }
+  }
+};
+
