@@ -461,19 +461,17 @@ export const legion = {
 };
 export const shadowlands = {
   EnableSpectate: new Buffer([0x00, 0x00, 0x48, 0x00]),
-  DisableSpectate: new Buffer([0x00, 0x00, 0x00, 0x00]),
+  DisableSpectate: new Buffer([0, 0, 0, 0]),
   Collision: 0x90,
   Speed: 0x84,
   CameraRot: 0x124,
 
-  camera: {
-    base: {
-      version: {
-        ['9.2.7']: {
-          SpectatePointer: [/* TODO: Find new pointer chain */],
-          CameraPointer: [/* TODO: Find new pointer chain */],
-          CameraValuesPointer: 0x0,  // TODO
-        }
+  base: {
+    version: {
+      ['9.2.7']: {
+        SpectatePointer: [0x01226DA0, 0x4, 0x28, 0x8, 0x384],   // copied from 7.3.5
+        CameraPointer: [0x11DF9A4, 0x0324C, 0],                // copied from 7.3.5
+        CameraValuesPointer: 0x11F57C8,                        // copied from 7.3.5
       }
     }
   },
@@ -481,21 +479,11 @@ export const shadowlands = {
   cameraViewMatrix: {
     version: {
       ['9.2.7']: {
-        pattern: new Buffer([/* TODO: AOB pattern for camera matrix */]),
-        fix: new Buffer([/* TODO: Fix bytes */])
+        pattern: new Buffer([0xE8, 0x6D, 0xA7, 0xFF, 0xFF, 0x6A, 0x09, 0x59, 0x8B, 0xF0, 0xF3, 0xA5]),
+        fix:     new Buffer([0xE8, 0x6D, 0xA7, 0xFF, 0xFF, 0x6A, 0x09, 0x59, 0x8B, 0xF0, 0x90, 0x90])
       }
     }
   },
 
   environment: {
-    version: {
-      ['9.2.7']: {
-        timeOfDay: 0x0,           // TODO: Find correct offset
-        timeOfDaySpeed: 0x0,      // TODO
-        renderFlags: 0x0,         // TODO
-        renderFlagsDefault: 0x0   // TODO
-      }
-    }
-  }
-};
-
+    version:
