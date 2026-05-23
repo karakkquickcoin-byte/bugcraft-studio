@@ -21,9 +21,7 @@ export const getVersion = (Memory) => {
   if (buildFound === '20779') return { client: 'draenor', build: '6.2.3' };
   if (buildFound === '24742') return { client: 'legion', build: '7.2.5' };
   if (buildFound === '26972') return { client: 'legion', build: '7.3.5' };
-}if (buildFound === 'YOUR_9.2.7_BUILD_NUMBER') {
-  return { client: 'shadowlands', build: '9.2.7' };
-};
+  if (buildFound === '45745') return { client: 'shadowlands', build: '9.2.7' };
 
 export const alpha = {
   camera: {
